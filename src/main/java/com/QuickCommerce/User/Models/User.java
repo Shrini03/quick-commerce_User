@@ -1,6 +1,7 @@
 package com.QuickCommerce.User.Models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
@@ -19,4 +20,7 @@ public class User extends Base{
     String name;
     String email;
     String hashedPassword;
+    @ManyToMany(mappedBy = "user", fetch = FetchType.EAGER)
+
+    List<Role> roles;
 }
